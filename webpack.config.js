@@ -10,6 +10,14 @@ module.exports = {
         rules: [
             {
                 test: /\.jsx?$/,
+                // use: [
+                //     {
+                //         loader: 'eslint-loader',
+                //         options: {
+                //             emitWarning: true
+                //         }
+                //     }
+                // ],
                 loader: 'babel-loader'
             }
         ]
@@ -18,13 +26,23 @@ module.exports = {
         extensions: ['.js', '.jsx'],
         alias: {
             '@': path.resolve(__dirname, 'src/'),
+            'react-redux': require.resolve('react-redux'),
+            'react': path.resolve('node_modules/react')
         }
     },
     plugins: [new HtmlWebpackPlugin({
-        template: './src/index.html'
-    })],
+        // template: './src/index.html'
+        template: __dirname + '/src/index.html',
+            filename: 'index.html',
+            inject: 'body'
+    }), 
+    // new webpack.ContextReplacementPlugin(
+    //     /(.+)?react(\\|\/)core(.+)?/, root('./src'), {}
+    //   ),
+    ],
     devServer: {
-        historyApiFallback: true
+        historyApiFallback: true,
+        //port: 3000
     },
     externals: {
         // global app config object

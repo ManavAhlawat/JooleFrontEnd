@@ -1,8 +1,10 @@
 import React from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { Router, Route, Link } from 'react-router-dom';
 import * as Yup from 'yup';
 
 import { authenticationService } from '@/_services';
+import { RegisterForm } from '../RegisterForm/RegisterForm';
 
 class LoginPage extends React.Component {
     constructor(props) {
@@ -42,6 +44,7 @@ class LoginPage extends React.Component {
                             );
                     }}
                     render={({ errors, status, touched, isSubmitting }) => (
+                        <div>
                         <Form>
                             <div className="form-group">
                                 <label htmlFor="username">Username</label>
@@ -63,6 +66,8 @@ class LoginPage extends React.Component {
                                 <div className={'alert alert-danger'}>{status}</div>
                             }
                         </Form>
+                        <Link to="/register" component={RegisterForm}>Sign up</Link>
+                        </div>
                     )}
                 />
             </div>

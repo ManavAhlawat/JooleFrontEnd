@@ -17,9 +17,9 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { userService, authenticationService } from '@/_services';
-import { Router, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Button from "@material-ui/core/Button";
-import { RangeSlider } from './Slider';
+import { RangeSlider } from './RangeSlider';
 import {useDispatch, useSelector} from "react-redux";
 import {applicationConstants} from "../constants";
 import {NavLink} from "react-router-dom";
@@ -29,7 +29,14 @@ import Accordion from "@material-ui/core/Accordion";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-//import { getSearchResult, clearSearch } from '../_action/productAction';
+import { getSearchResult, clearSearch } from '../_action/searchActions';
+import {Provider} from 'react-redux';
+import {HashRouter as Router, Route} from 'react-router-dom';
+import Landing from './Home/Landing';
+import Product from './Home/Product';
+import store from '../store';
+import { isAbsolute } from 'path';
+import {Compare} from './Compare';
 
 
 
@@ -37,7 +44,7 @@ const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: 'flex',
+    display: 'absolute',
   },
   drawer: {
     [theme.breakpoints.up('sm')]: {
@@ -61,8 +68,13 @@ const useStyles = makeStyles((theme) => ({
     width: drawerWidth,
   },
   content: {
-    flexGrow: 1,
-    padding: theme.spacing(3),
+    // flexGrow: 1,
+    //padding: theme.spacing(3),
+    width: 900,
+    padding:0,
+    margin:0,
+    // height: 100,
+    //width: 100
   },
 }));
 
@@ -93,7 +105,9 @@ function ResponsiveDrawer(props) {
 
       <div className={classes.drawerHeader}>
         
-                    Search:
+                    {/* <Button size="small" color="primary" style={{margin: "auto"}} onClick={handleOnSearch}>
+                        Search
+                    </Button> */}
                     <Button size="small" color="primary" style={{margin: "auto"}}>
                         Save
                     </Button>
@@ -213,7 +227,7 @@ const handleSetYear = (e) => {
 const handleSetAirflow = (e) => {
     dispatch({
         type: applicationConstants.searchAirflow,
-        payload: [...hp]
+        payload: [...e]
     });
 };
 const handleSetMaxPower = (e) => {
@@ -251,8 +265,9 @@ const handleSetGlobal = (e) => {
   });
 }
 
-    // const filter = useSelector(state => state.filter);
-    // const products = useSelector(state => state.product.rowData)
+    //const filter = useSelector(state => state.filter);
+    //console.log(filter)
+    //const products = useSelector(state => state.product.products)
     // const handleOnSearch = () => {
     //     console.log(filter);
     //     dispatch(getSearchResult(filter.filter, products));
@@ -289,16 +304,29 @@ const handleSetGlobal = (e) => {
           <Typography component={'span'} variant={'body2'} variant="h6" noWrap>
             Joole
            </Typography>
-           <hr></hr>
+           
 
-          <Typography component={'span'} variant={'body2'} variant="h6" noWrap>
-            <Link to="/" >Home</Link>
-           </Typography>
+          {/* <Typography component={'span'} variant={'body2'} variant="h6" noWrap>
+            <Link to="/">Home</Link>
+           </Typography> */}
+           {/* <hr></hr> */}
+
+           {/* <NavLink to="/#/productCompare">
+                        <Typography variant="h6" className={classes.title}>
+                            <Button> Product Compare</Button>
+                        </Typography>
+            </NavLink> */}
            
            <hr></hr>
+           <hr></hr>
+           <hr></hr>
+           <hr></hr>
+           <hr></hr>
+           <hr></hr>
+
 
            <Typography component={'span'} variant={'body2'} variant={"h6"} className={classes.title}>
-           Hi { currentUser.username }!
+           Welcome { currentUser.username }!
            </Typography>
 
            <hr></hr>
@@ -367,7 +395,29 @@ const handleSetGlobal = (e) => {
         </Hidden>
       </nav>
       <main className={classes.content}>
-        <div className={classes.toolbar} />
+        {/* <div className={classes.toolbar} /> */}
+        {/* <Typography component={'span'} variant={'body2'} variant={"h6"} className={classes.title}> */}
+        <Provider store={store}>
+          <Router>
+            <div>
+            <Route exact path="/" component={Landing} />
+            <Route exact path="/product/:id" component={Product} />
+            <Route exact path="/productCompare" component={Compare}/>
+            </div>
+          </Router>
+        </Provider>
+        {props.children}
+        {/* <div style={{width: "100%"}} > */}
+        {/* hi I am Manav hi I am Manav hi I am Manav hi I am Manav hi I am Manav hi I am Manav hi I am Manav hi I am Manav hi I am Manav
+        hi I am Manav hi I am Manav hi I am Manav hi I am Manav hi I am Manav hi I am Manav hi I am Manav hi I am Manav hi I am Manav
+        hi I am Manav hi I am Manav hi I am Manav hi I am Manav hi I am Manav hi I am Manav hi I am Manav hi I am Manav hi I am Manav
+        hi I am Manav hi I am Manav hi I am Manav hi I am Manav hi I am Manav hi I am Manav hi I am Manav hi I am Manav hi I am Manav
+        hi I am Manav hi I am Manav hi I am Manav hi I am Manav hi I am Manav hi I am Manav hi I am Manav hi I am Manav hi I am Manav
+        hi I am Manav hi I am Manav hi I am Manav hi I am Manav hi I am Manav hi I am Manav hi I am Manav hi I am Manav hi I am Manav
+        hi I am Manav hi I am Manav hi I am Manav hi I am Manav hi I am Manav hi I am Manav hi I am Manav hi I am Manav hi I am Manav
+        hi I am Manav */}
+        {/* </div> */}
+        {/* </Typography>  */}
         
       </main>
     </div>

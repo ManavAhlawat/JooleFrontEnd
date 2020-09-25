@@ -13,21 +13,30 @@
         "@babel/runtime": "^7.11.2",
         "@material-ui/core": "^4.11.0",
         "@material-ui/icons": "^4.9.1",
+        "@material-ui/lab": "^4.0.0-alpha.56",
         "axios": "^0.20.0",
         "core-js": "^3.6.5",
+        "file-loader": "^6.1.0",
         "formik": "^1.5.2",
         "history": "^4.9.0",
         "install-link": "^0.1.2",
         "joi-browser": "^13.4.0",
+        "material-table": "^1.68.0",
         "react": "^16.8.6",
         "react-dom": "^16.8.6",
         "react-joi-validation": "^1.7.0",
         "react-redux": "^7.2.1",
         "react-router-dom": "^5.0.0",
+        "react-scripts": "^3.4.3",
+        "react-spinners": "^0.9.0",
         "react-toastify": "^6.0.8",
         "redux": "^4.0.5",
+        "redux-devtools-extension": "^2.13.8",
+        "redux-thunk": "^2.3.0",
         "regenerator-runtime": "^0.13.7",
+        "request": "2.79.0",
         "rxjs": "^6.3.3",
+        "url-loader": "^4.1.0",
         "yup": "^0.27.0"
     },
     "devDependencies": {
@@ -36,11 +45,32 @@
         "@babel/plugin-transform-runtime": "^7.11.5",
         "@babel/preset-env": "^7.4.3",
         "@babel/preset-react": "^7.0.0",
+        "babel-eslint": "^8.2.6",
         "babel-loader": "^8.1.0",
+        "eslint": "^4.19.1",
+        "eslint-loader": "^4.0.2",
+        "eslint-plugin-import": "^2.22.0",
+        "eslint-plugin-jsx-a11y": "^6.3.1",
+        "eslint-plugin-react": "^7.20.6",
         "html-webpack-plugin": "^3.2.0",
         "path": "^0.12.7",
         "webpack": "^4.29.6",
         "webpack-cli": "^3.3.0",
         "webpack-dev-server": "^3.2.1"
+    },
+    "eslintConfig": {
+        "extends": "react-app"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
     }
 }

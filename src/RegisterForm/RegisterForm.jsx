@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Joi from "joi-browser";
 import Form from "../_components/common/form";
 import * as userRegisterService from '../_services/userRegisterService';
+import { Router, Route, Link } from 'react-router-dom';
+import {LoginPage} from '../LoginPage/LoginPage';
 //import auth from "../services/authService";
 
 class RegisterForm extends Form {
@@ -48,6 +50,7 @@ class RegisterForm extends Form {
           {/* {this.renderInput("name", "Name")} */}
           {this.renderButton("Register")}
         </form>
+        <Link to="/login" component={LoginPage}>Already registered?</Link>
       </div>
     );
   }

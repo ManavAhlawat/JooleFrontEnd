@@ -51,8 +51,12 @@ class App extends React.Component {
                                     {/* <NavBar></NavBar> */}
                                     {/* <Button color="primary" to="/register">Sign up</Button> */}
                                     {/* <Link to='/register'>Sign up</Link> */}
-                                    <Route path="/login" component={LoginPage} />
-                                    <Route path="/register" component={ RegisterForm } /> 
+                                    
+                                    {/* <Link to="/register" component={RegisterForm}>Sign up</Link> */}
+                                    
+                                        <Route path="/login" component={LoginPage} />
+                                        <Route path="/register" component={ RegisterForm } /> 
+                                        
                                     
                                 </div>
                             </div>

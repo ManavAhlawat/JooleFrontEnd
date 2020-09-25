@@ -7,11 +7,8 @@ export const applicationConstants={
     loginRoute: 'loginRoute',
     //actions
     searchYear: 'searchYear',
-    searchHp: 'searchHp',
-    searchHeatingSurface:'searchHeatingSurface',
-    searchPressure: 'searchPressure',
     searchLength: 'searchLength',
-    searchHight: 'searchHight',
+    searchHeight: 'searchHeight',
     searchButton: 'searchButton',
     searchClearButton:'searchClearButton',
     searchFirm: 'searchFirm',
@@ -23,8 +20,6 @@ export const applicationConstants={
     addCompare: 'addCompare',
     clearCompare:'clearCompare',
     clearCompareById:'clearCompareById',
-    loginAction: 'loginAction',
-    logoutAction: 'logoutAction',
     //request
     Get_Product:'Get_Product',
     Get_ProductById: 'Get_ProductById'

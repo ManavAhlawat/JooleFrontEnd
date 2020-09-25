@@ -1,15 +1,16 @@
 import {applicationConstants} from "../constants";
 
-export const addCompareProduct=(p)=>{
+export const addCompareProduct=(product)=>{
+    //console.log(product)
     return {
         type: applicationConstants.addCompare,
-        payload: p
+        payload: product
     }
 }
-export const removeCompareProductById=(id)=>{
+export const removeCompareProductById=(productID)=>{
     return{
         type:applicationConstants.clearCompareById,
-        payload: id
+        payload: productID
     }
 }
 export const removeComparProduct=()=>{
